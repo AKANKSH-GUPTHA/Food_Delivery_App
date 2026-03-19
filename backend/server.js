@@ -5,6 +5,7 @@ const dotenv = require('dotenv')
 const path = require('path')
 const authRoute = require('./routes/authRoute')
 const foodRoute = require('./routes/foodRoute')
+const orderRoute = require('./routes/orderRoute')
 
 dotenv.config()
 
@@ -20,6 +21,7 @@ mongoose.connect(process.env.MONGO_URI)
 // Routes
 app.use('/api/auth', authRoute)
 app.use('/api/food', foodRoute)
+app.use('/api/order', orderRoute)
 
 app.get('/', (req, res) => {
   res.send('Food Delivery API is running!')
