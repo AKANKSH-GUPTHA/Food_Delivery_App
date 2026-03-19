@@ -25,9 +25,9 @@ const foods = [
   { name: 'Chicken Kathi Roll', description: 'Flaky paratha filled with spiced chicken and onions', price: 149, image: 'https://images.unsplash.com/photo-1628294895950-9805252327bc?w=400', category: 'Rolls' },
 
   // Dessert
-  { name: 'Gulab Jamun', description: 'Soft milk solid dumplings soaked in rose syrup', price: 99, image: 'https://images.pexels.com/photos/14477015/pexels-photo-14477015.jpeg?w=400', category: 'Dessert' },
+  
   { name: 'Chocolate Cake', description: 'Rich layered chocolate cake with ganache frosting', price: 179, image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400', category: 'Dessert' },
-  { name: 'Rasgulla', description: 'Soft spongy cottage cheese balls in light sugar syrup', price: 89, image: 'https://images.pexels.com/photos/14477015/pexels-photo-14477015.jpeg?w=400', category: 'Dessert' },
+  
 
   // Salad
   { name: 'Caesar Salad', description: 'Fresh romaine lettuce with caesar dressing and croutons', price: 149, image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400', category: 'Salad' },
