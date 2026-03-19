@@ -3,22 +3,22 @@ import React, { createContext, useState } from 'react'
 export const StoreContext = createContext(null)
 
 const StoreContextProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState({})
+  const [cartItems, setCartItems] = useState(
+    JSON.parse(localStorage.getItem('cart')) || {}
+  )
   const [token, setToken] = useState(localStorage.getItem('token') || '')
   const url = 'https://food-delivery-app-s8rh.onrender.com'
 
   const addToCart = (itemId) => {
-    setCartItems(prev => ({
-      ...prev,
-      [itemId]: (prev[itemId] || 0) + 1
-    }))
+    const updated = { ...cartItems, [itemId]: (cartItems[itemId] || 0) + 1 }
+    setCartItems(updated)
+    localStorage.setItem('cart', JSON.stringify(updated))
   }
 
   const removeFromCart = (itemId) => {
-    setCartItems(prev => ({
-      ...prev,
-      [itemId]: prev[itemId] - 1
-    }))
+    const updated = { ...cartItems, [itemId]: cartItems[itemId] - 1 }
+    setCartItems(updated)
+    localStorage.setItem('cart', JSON.stringify(updated))
   }
 
   const getTotalCartAmount = (foodList) => {
