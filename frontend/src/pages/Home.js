@@ -42,7 +42,7 @@ const Home = () => {
         : <div style={styles.grid}>
             {filtered.map(item => (
               <div key={item._id} style={styles.card}>
-                <img src={`${url}/images/${item.image}`} alt={item.name} style={styles.img} />
+                <img src={item.image} alt={item.name} style={styles.img} />
                 <div style={styles.cardBody}>
                   <h3>{item.name}</h3>
                   <p style={styles.desc}>{item.description}</p>
