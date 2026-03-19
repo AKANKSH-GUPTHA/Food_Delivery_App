@@ -1,11 +1,16 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { StoreContext } from '../context/StoreContext'
 
 const PlaceOrder = () => {
-  const { cartItems, token, url } = useContext(StoreContext)
+  const { cartItems, token, url, getTotalCartAmount } = useContext(StoreContext)
+const [foodList, setFoodList] = useState([])
+useEffect(async () => {
+  const response = await axios.get(url + '/api/food/list')
+  if (response.data.success) setFoodList(response.data.data)
+}, [])
   const navigate = useNavigate()
   const [data, setData] = useState({
     firstName: '', lastName: '', email: '',
@@ -26,7 +31,7 @@ const PlaceOrder = () => {
       const orderData = {
         userId: token,
         items: cartItems,
-        amount: 100,
+        amount: getTotalCartAmount(foodList) + 40,
         address: data
       }
       const response = await axios.post(url + '/api/order/place', orderData)
