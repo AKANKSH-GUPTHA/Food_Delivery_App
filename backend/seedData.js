@@ -12,7 +12,7 @@ const foods = [
   { name: 'Palak Paneer', description: 'Fresh cottage cheese in smooth spinach gravy', price: 240, image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400', category: 'Curry' },
 
   // Biryani
-  { name: 'Chicken Biryani', description: 'Aromatic basmati rice cooked with spiced chicken', price: 350, image: 'https://images.unsplash.com/photo-1563379091339-03246963d96f?w=400', category: 'Biryani' },
+  
   { name: 'Veg Biryani', description: 'Fragrant basmati rice with fresh vegetables and saffron', price: 280, image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400', category: 'Biryani' },
   { name: 'Hyderabadi Biryani', description: 'Authentic Hyderabadi dum biryani with tender meat', price: 399, image: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=400', category: 'Biryani' },
 
@@ -25,9 +25,9 @@ const foods = [
   { name: 'Chicken Kathi Roll', description: 'Flaky paratha filled with spiced chicken and onions', price: 149, image: 'https://images.unsplash.com/photo-1628294895950-9805252327bc?w=400', category: 'Rolls' },
 
   // Dessert
-  { name: 'Gulab Jamun', description: 'Soft milk solid dumplings soaked in rose syrup', price: 99, image: 'https://images.unsplash.com/photo-1601303516534-bf9a6069d5f1?w=400', category: 'Dessert' },
+  { name: 'Gulab Jamun', description: 'Soft milk solid dumplings soaked in rose syrup', price: 99, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Gulab_jamun_%28जलेबी%29.jpg/640px-Gulab_jamun_%28जलेबी%29.jpg', category: 'Dessert' },
   { name: 'Chocolate Cake', description: 'Rich layered chocolate cake with ganache frosting', price: 179, image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400', category: 'Dessert' },
-  { name: 'Rasgulla', description: 'Soft spongy cottage cheese balls in light sugar syrup', price: 89, image: 'https://images.unsplash.com/photo-1666005892875-6b1a5b6d4f52?w=400', category: 'Dessert' },
+  { name: 'Rasgulla', description: 'Soft spongy cottage cheese balls in light sugar syrup', price: 89, image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Rasgulla.jpg/640px-Rasgulla.jpg', category: 'Dessert' },
 
   // Salad
   { name: 'Caesar Salad', description: 'Fresh romaine lettuce with caesar dressing and croutons', price: 149, image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400', category: 'Salad' },
