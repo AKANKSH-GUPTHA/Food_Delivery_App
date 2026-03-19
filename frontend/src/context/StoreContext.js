@@ -5,7 +5,7 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({})
   const [token, setToken] = useState(localStorage.getItem('token') || '')
-  const url = 'http://localhost:4000'
+  const url = 'https://food-delivery-app-s8rh.onrender.com'
 
   const addToCart = (itemId) => {
     setCartItems(prev => ({
