@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const dotenv = require('dotenv')
+const authRoute = require('./routes/authRoute')
 
 dotenv.config()
 
@@ -12,6 +13,9 @@ app.use(express.json())
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB Connected ✅'))
   .catch((err) => console.log('DB Error:', err))
+
+// Routes
+app.use('/api/auth', authRoute)
 
 app.get('/', (req, res) => {
   res.send('Food Delivery API is running!')
