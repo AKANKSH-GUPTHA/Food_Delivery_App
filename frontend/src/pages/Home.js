@@ -21,17 +21,17 @@ const Home = () => {
   const filtered = category === 'All' ? foodList : foodList.filter(f => f.category === category)
 
   return (
-    <div style={{ padding: '0', background: '#FFF8F0', minHeight: '100vh' }}>
+    <div style={{ padding: '0', background: '#FFF8F0', minHeight: '100vh', overflowX: 'hidden' }}>
 
       {/* Hero Section */}
-      <div style={styles.hero}>
+      <div className="hero-section" style={styles.hero}>
         <div style={styles.heroContent}>
           <div style={styles.heroBadge}>🌶️ Authentic Indian Flavours</div>
-          <h1 style={styles.heroTitle}>
+          <h1 className="hero-title" style={styles.heroTitle}>
             Order Your <span style={styles.heroHighlight}>Favourite</span>
             <br />Food Here
           </h1>
-          <p style={styles.heroSubtitle}>
+          <p className="hero-subtitle" style={styles.heroSubtitle}>
             Choose from a diverse menu featuring authentic Indian dishes,
             delivered fresh to your doorstep
           </p>
@@ -43,15 +43,15 @@ const Home = () => {
             <div style={styles.stat}><b>4.8★</b><span>Rating</span></div>
           </div>
         </div>
-        <div style={styles.heroImage}>🍛</div>
+        <div className="hero-emoji" style={styles.heroImage}>🍛</div>
         <div style={styles.heroCircle1} />
         <div style={styles.heroCircle2} />
       </div>
 
-      <div style={{ padding: '30px 40px' }}>
+      <div className="main-padding" style={{ padding: '30px 40px' }}>
         {/* Categories */}
         <h2 style={styles.sectionTitle}>Explore our menu</h2>
-        <div style={styles.categories}>
+        <div className="categories-container" style={styles.categories}>
           {categories.map(cat => (
             <button key={cat} onClick={() => setCategory(cat)}
               style={{
@@ -63,6 +63,7 @@ const Home = () => {
                 border: category === cat ? 'none' : '2px solid #6C3483',
                 transform: category === cat ? 'scale(1.05)' : 'scale(1)',
                 boxShadow: category === cat ? '0 4px 15px rgba(108,52,131,0.3)' : 'none',
+                flexShrink: 0,
               }}>
               {cat}
             </button>
@@ -73,14 +74,14 @@ const Home = () => {
         <h2 style={styles.sectionTitle}>Top dishes near you</h2>
         {filtered.length === 0
           ? <p style={{ color: '#888', fontSize: '16px' }}>No food items in this category!</p>
-          : <div style={styles.grid}>
+          : <div className="food-grid" style={styles.grid}>
               {filtered.map(item => (
                 <div key={item._id}
                   style={{
                     ...styles.card,
                     transform: hoveredCard === item._id
-                      ? 'translateY(-12px) rotateX(2deg) scale(1.02)'
-                      : 'translateY(0) rotateX(0) scale(1)',
+                      ? 'translateY(-12px) scale(1.02)'
+                      : 'translateY(0) scale(1)',
                     boxShadow: hoveredCard === item._id
                       ? '0 20px 40px rgba(108,52,131,0.25)'
                       : '0 4px 15px rgba(0,0,0,0.08)',
@@ -105,7 +106,7 @@ const Home = () => {
                             ? 'linear-gradient(135deg, #27AE60, #2ECC71)'
                             : 'linear-gradient(135deg, #E74C3C, #C0392B)',
                         }}>
-                        {cartItems[item._id] ? `✓ Added (${cartItems[item._id]})` : '+ Add'}
+                        {cartItems[item._id] ? `✓ (${cartItems[item._id]})` : '+ Add'}
                       </button>
                     </div>
                   </div>
@@ -139,7 +140,6 @@ const styles = {
     fontWeight: '600',
     display: 'inline-block',
     marginBottom: '20px',
-    backdropFilter: 'blur(10px)',
   },
   heroTitle: {
     fontSize: '48px',
@@ -150,7 +150,6 @@ const styles = {
   },
   heroHighlight: {
     color: '#F9E79F',
-    textShadow: '0 0 30px rgba(249,231,159,0.5)',
   },
   heroSubtitle: {
     color: 'rgba(255,255,255,0.85)',
@@ -175,10 +174,9 @@ const styles = {
     background: 'rgba(255,255,255,0.3)',
   },
   heroImage: {
-    fontSize: '150px',
+    fontSize: '120px',
     position: 'relative',
     zIndex: 2,
-    animation: 'float 3s ease-in-out infinite',
   },
   heroCircle1: {
     position: 'absolute',
@@ -209,8 +207,10 @@ const styles = {
   categories: {
     display: 'flex',
     gap: '12px',
-    flexWrap: 'wrap',
+    overflowX: 'auto',
+    paddingBottom: '10px',
     marginBottom: '30px',
+    scrollbarWidth: 'none',
   },
   catBtn: {
     padding: '10px 22px',
@@ -220,18 +220,18 @@ const styles = {
     fontWeight: '600',
     fontSize: '14px',
     transition: 'all 0.3s ease',
+    whiteSpace: 'nowrap',
   },
   grid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
     gap: '25px',
-    perspective: '1000px',
   },
   card: {
     background: 'white',
     borderRadius: '16px',
     overflow: 'hidden',
-    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    transition: 'all 0.3s ease',
     cursor: 'pointer',
   },
   imgWrapper: { position: 'relative' },
@@ -260,13 +260,12 @@ const styles = {
   addBtn: {
     color: 'white',
     border: 'none',
-    padding: '10px 18px',
+    padding: '10px 14px',
     borderRadius: '25px',
     cursor: 'pointer',
     fontWeight: '700',
     fontSize: '13px',
     transition: 'all 0.3s ease',
-    boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
   },
 }
 

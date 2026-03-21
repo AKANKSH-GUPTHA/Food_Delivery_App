@@ -26,7 +26,7 @@ const Navbar = ({ setShowLogin }) => {
         </div>
 
         {/* Desktop Links */}
-        <div style={styles.desktopLinks}>
+        <div style={styles.desktopLinks} className="desktop-links">
           <Link to='/' style={styles.link}>Home</Link>
           <Link to='/cart' style={styles.cartLink}>
             🛒 Cart
@@ -42,7 +42,7 @@ const Navbar = ({ setShowLogin }) => {
         </div>
 
         {/* Mobile Hamburger */}
-        <button style={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
+        <button style={styles.hamburger} className="hamburger-btn" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? '✕' : '☰'}
         </button>
       </nav>
@@ -91,7 +91,6 @@ const styles = {
     display: 'flex',
     gap: '25px',
     alignItems: 'center',
-    '@media (max-width: 768px)': { display: 'none' }
   },
   link: {
     color: 'rgba(255,255,255,0.9)',
@@ -139,8 +138,8 @@ const styles = {
     fontWeight: '600',
     fontSize: '14px',
   },
-  hamburger: {
-    display: 'none',
+ hamburger: {
+    display: 'block',
     background: 'rgba(255,255,255,0.2)',
     border: 'none',
     color: 'white',
